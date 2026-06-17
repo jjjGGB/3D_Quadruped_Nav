@@ -1,0 +1,17 @@
+octo_planner_rviz_node:
+  ros__parameters:
+    input_pcd: building2_9big.pcd
+    output_bt: result_cleaned.bt
+    frame_id: map
+    start_z: 0.3
+    goal_z: 0.3
+    map_alpha: 1.0
+    map_color_mode: height
+    use_robot_pose_as_start: true
+    base_frame_candidates: base_link,base_footprint,odin1_base_link
+    robot_pose_lookup_timeout: 0.1
+    clicked_point_topic: clicked_point
+    map_publish_period: 2.0
+    publish_ego_obstacles: true
+    ego_obstacles_topic: /ego_obstacles
+    ego_obstacles_max_points: 200000

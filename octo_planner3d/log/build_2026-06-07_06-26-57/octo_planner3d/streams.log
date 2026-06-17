@@ -1,0 +1,121 @@
+[0.003s] Invoking command in '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /workspace/OctoPlanner3D-ROS2 -DCMAKE_INSTALL_PREFIX=/workspace/OctoPlanner3D-ROS2/install/octo_planner3d
+[0.042s] -- The CXX compiler identification is GNU 11.4.0
+[0.046s] -- Detecting CXX compiler ABI info
+[0.098s] -- Detecting CXX compiler ABI info - done
+[0.101s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.101s] -- Detecting CXX compile features
+[0.101s] -- Detecting CXX compile features - done
+[0.139s] -- Checking for module 'libusb-1.0'
+[0.145s] --   Found libusb-1.0, version 1.0.25
+[0.174s] -- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[0.174s] -- Found OpenNI: /usr/lib/libOpenNI.so;libusb::libusb (found version "1.5.4.0") 
+[0.174s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[0.210s] -- Found OpenNI2: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb (found version "2.2.0.33") 
+[0.210s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[0.210s] [0m** WARNING ** io features related to pcap will be disabled[0m
+[0.210s] [0m** WARNING ** io features related to png will be disabled[0m
+[0.229s] -- Looking for C++ include pthread.h
+[0.283s] -- Looking for C++ include pthread.h - found
+[0.283s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.336s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.336s] -- Found Threads: TRUE  
+[0.336s] -- Found GLEW: /usr/lib/x86_64-linux-gnu/libGLEW.so  
+[0.343s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so  found components: OpenGL GLX 
+[0.349s] -- Could NOT find MPI (missing: MPI_C_FOUND C) 
+[0.349s]     Reason given by package: MPI component 'C' was requested, but language C is not enabled.  
+[0.349s] 
+[0.350s] -- Found JsonCpp: /usr/lib/x86_64-linux-gnu/libjsoncpp.so (found suitable version "1.9.5", minimum required is "0.7.0") 
+[0.357s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+[0.357s] -- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.6.37") 
+[0.362s] -- Found Eigen3: /usr/include/eigen3 (found version "3.4.0") 
+[0.408s] -- Found X11: /usr/include   
+[0.408s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+[0.461s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+[0.461s] -- Looking for gethostbyname
+[0.521s] -- Looking for gethostbyname - found
+[0.521s] -- Looking for connect
+[0.568s] -- Looking for connect - found
+[0.568s] -- Looking for remove
+[0.615s] -- Looking for remove - found
+[0.615s] -- Looking for shmat
+[0.656s] -- Looking for shmat - found
+[0.656s] -- Looking for IceConnectionNumber in ICE
+[0.703s] -- Looking for IceConnectionNumber in ICE - found
+[0.748s] -- Found EXPAT: /usr/lib/x86_64-linux-gnu/libexpat.so (found version "2.4.7") 
+[0.748s] -- Found double-conversion: /usr/lib/x86_64-linux-gnu/libdouble-conversion.so  
+[0.749s] -- Found LZ4: /usr/lib/x86_64-linux-gnu/liblz4.so (found version "1.9.3") 
+[0.752s] -- Found LZMA: /usr/lib/x86_64-linux-gnu/liblzma.so (found version "5.2.5") 
+[0.757s] -- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80") 
+[0.759s] -- Found TIFF: /usr/lib/x86_64-linux-gnu/libtiff.so (found version "4.3.0")  
+[0.761s] -- Found Freetype: /usr/lib/x86_64-linux-gnu/libfreetype.so (found version "2.11.1") 
+[0.763s] -- Found utf8cpp: /usr/include/utf8cpp  
+[0.785s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.65.0") found components: system filesystem date_time iostreams serialization 
+[0.789s] -- Checking for module 'eigen3'
+[0.798s] --   Found eigen3, version 3.4.0
+[0.826s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[0.826s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[0.828s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[0.831s] -- looking for PCL_OCTREE
+[0.831s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[0.831s] -- looking for PCL_IO
+[0.831s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[0.831s] -- looking for PCL_COMMON
+[0.832s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[0.832s] -- Found PCL: pcl_octree;pcl_io;pcl_common;Boost::system;Boost::filesystem;Boost::date_time;Boost::iostreams;Boost::serialization;/usr/lib/libOpenNI.so;libusb::libusb;/usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb;VTK::ChartsCore;VTK::CommonColor;VTK::CommonComputationalGeometry;VTK::CommonCore;VTK::CommonDataModel;VTK::CommonExecutionModel;VTK::CommonMath;VTK::CommonMisc;VTK::CommonTransforms;VTK::FiltersCore;VTK::FiltersExtraction;VTK::FiltersGeneral;VTK::FiltersGeometry;VTK::FiltersModeling;VTK::FiltersSources;VTK::ImagingCore;VTK::ImagingSources;VTK::InteractionImage;VTK::InteractionStyle;VTK::InteractionWidgets;VTK::IOCore;VTK::IOGeometry;VTK::IOImage;VTK::IOLegacy;VTK::IOPLY;VTK::RenderingAnnotation;VTK::RenderingCore;VTK::RenderingContext2D;VTK::RenderingLOD;VTK::RenderingFreeType;VTK::ViewsCore;VTK::ViewsContext2D;VTK::RenderingOpenGL2;VTK::GUISupportQt  
+[0.919s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.968s] -- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)
+[0.983s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.983s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.985s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.990s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.996s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.017s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.017s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.068s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.078s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.102s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.130s] -- Found geometry_msgs: 4.9.1 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.135s] -- Found nav_msgs: 4.9.1 (/opt/ros/humble/share/nav_msgs/cmake)
+[1.143s] -- Found visualization_msgs: 4.9.1 (/opt/ros/humble/share/visualization_msgs/cmake)
+[1.195s] -- Configuring done
+[1.208s] -- Generating done
+[1.212s] -- Build files have been written to: /workspace/OctoPlanner3D-ROS2/build/octo_planner3d
+[1.222s] Invoked command in '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /workspace/OctoPlanner3D-ROS2 -DCMAKE_INSTALL_PREFIX=/workspace/OctoPlanner3D-ROS2/install/octo_planner3d
+[1.222s] Invoking command in '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /workspace/OctoPlanner3D-ROS2/build/octo_planner3d -- -j20 -l20
+[1.256s] [ 12%] [32mBuilding CXX object octomap/CMakeFiles/Octomap.dir/src/pcd2octomap_converter.cpp.o[0m
+[1.262s] [ 25%] [32mBuilding CXX object planner/CMakeFiles/GlobalPlanner.dir/src/global_planner.cpp.o[0m
+[1.860s] [ 37%] [32m[1mLinking CXX static library libGlobalPlanner.a[0m
+[1.888s] [ 37%] Built target GlobalPlanner
+[2.938s] [ 50%] [32m[1mLinking CXX static library libOctomap.a[0m
+[2.964s] [ 50%] Built target Octomap
+[2.975s] [ 62%] [32mBuilding CXX object CMakeFiles/globalPlan.dir/main.cpp.o[0m
+[2.976s] [ 75%] [32mBuilding CXX object CMakeFiles/octo_planner_rviz_node.dir/src/octo_planner_rviz_node.cpp.o[0m
+[4.210s] [ 87%] [32m[1mLinking CXX executable globalPlan[0m
+[4.361s] [ 87%] Built target globalPlan
+[10.813s] [100%] [32m[1mLinking CXX executable octo_planner_rviz_node[0m
+[11.382s] [100%] Built target octo_planner_rviz_node
+[11.390s] Invoked command in '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /workspace/OctoPlanner3D-ROS2/build/octo_planner3d -- -j20 -l20
+[11.396s] Invoking command in '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /workspace/OctoPlanner3D-ROS2/build/octo_planner3d
+[11.400s] -- Install configuration: ""
+[11.401s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/lib/octo_planner3d/globalPlan
+[11.401s] -- Set runtime path of "/workspace/OctoPlanner3D-ROS2/install/octo_planner3d/lib/octo_planner3d/globalPlan" to ""
+[11.401s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/lib/octo_planner3d/octo_planner_rviz_node
+[11.408s] -- Set runtime path of "/workspace/OctoPlanner3D-ROS2/install/octo_planner3d/lib/octo_planner3d/octo_planner_rviz_node" to "$ORIGIN"
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/lib/octo_planner3d/liboctomap.so.1.10
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/lib/octo_planner3d/liboctomath.so.1.10
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/ament_index/resource_index/package_run_dependencies/octo_planner3d
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/ament_index/resource_index/parent_prefix_path/octo_planner3d
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/environment/ament_prefix_path.sh
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/environment/ament_prefix_path.dsv
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/environment/path.sh
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/environment/path.dsv
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/local_setup.bash
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/local_setup.sh
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/local_setup.zsh
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/local_setup.dsv
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/package.dsv
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/ament_index/resource_index/packages/octo_planner3d
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/cmake/octo_planner3dConfig.cmake
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/cmake/octo_planner3dConfig-version.cmake
+[11.409s] -- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/package.xml
+[11.410s] Invoked command in '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /workspace/OctoPlanner3D-ROS2/build/octo_planner3d

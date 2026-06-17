@@ -1,0 +1,242 @@
+[0.000000] (-) TimerEvent: {}
+[0.000503] (octo_planner3d) JobQueued: {'identifier': 'octo_planner3d', 'dependencies': OrderedDict()}
+[0.000534] (octo_planner3d) JobStarted: {'identifier': 'octo_planner3d'}
+[0.003522] (octo_planner3d) JobProgress: {'identifier': 'octo_planner3d', 'progress': 'cmake'}
+[0.003697] (octo_planner3d) Command: {'cmd': ['/usr/bin/cmake', '/workspace/OctoPlanner3D-ROS2', '-DCMAKE_INSTALL_PREFIX=/workspace/OctoPlanner3D-ROS2/install/octo_planner3d'], 'cwd': '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d', 'env': OrderedDict([('HOSTNAME', 'ubuntu-LEGION-REN9000K-34IAS'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/workspace'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/workspace/OctoPlanner3D/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('XAUTHORITY', '/tmp/.docker.xauth'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/workspace/OctoPlanner3D/install/octo_planner3d:/opt/ros/humble'), ('PWD', '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/workspace/OctoPlanner3D/install/octo_planner3d:/opt/ros/humble')]), 'shell': False}
+[0.042081] (octo_planner3d) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.046822] (octo_planner3d) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.098439] (octo_planner3d) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.098590] (-) TimerEvent: {}
+[0.101848] (octo_planner3d) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.101931] (octo_planner3d) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.101963] (octo_planner3d) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.139663] (octo_planner3d) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[0.145892] (octo_planner3d) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.25\n'}
+[0.174352] (octo_planner3d) StdoutLine: {'line': b'-- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  \n'}
+[0.174475] (octo_planner3d) StdoutLine: {'line': b'-- Found OpenNI: /usr/lib/libOpenNI.so;libusb::libusb (found version "1.5.4.0") \n'}
+[0.174523] (octo_planner3d) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[0.198708] (-) TimerEvent: {}
+[0.210586] (octo_planner3d) StdoutLine: {'line': b'-- Found OpenNI2: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb (found version "2.2.0.33") \n'}
+[0.210739] (octo_planner3d) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[0.210770] (octo_planner3d) StderrLine: {'line': b'\x1b[0m** WARNING ** io features related to pcap will be disabled\x1b[0m\n'}
+[0.210823] (octo_planner3d) StderrLine: {'line': b'\x1b[0m** WARNING ** io features related to png will be disabled\x1b[0m\n'}
+[0.228996] (octo_planner3d) StdoutLine: {'line': b'-- Looking for C++ include pthread.h\n'}
+[0.283044] (octo_planner3d) StdoutLine: {'line': b'-- Looking for C++ include pthread.h - found\n'}
+[0.283198] (octo_planner3d) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[0.299006] (-) TimerEvent: {}
+[0.336327] (octo_planner3d) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[0.336464] (octo_planner3d) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[0.336494] (octo_planner3d) StdoutLine: {'line': b'-- Found GLEW: /usr/lib/x86_64-linux-gnu/libGLEW.so  \n'}
+[0.343694] (octo_planner3d) StdoutLine: {'line': b'-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so  found components: OpenGL GLX \n'}
+[0.349204] (octo_planner3d) StdoutLine: {'line': b'-- Could NOT find MPI (missing: MPI_C_FOUND C) \n'}
+[0.349259] (octo_planner3d) StdoutLine: {'line': b"    Reason given by package: MPI component 'C' was requested, but language C is not enabled.  \n"}
+[0.349289] (octo_planner3d) StdoutLine: {'line': b'\n'}
+[0.350057] (octo_planner3d) StdoutLine: {'line': b'-- Found JsonCpp: /usr/lib/x86_64-linux-gnu/libjsoncpp.so (found suitable version "1.9.5", minimum required is "0.7.0") \n'}
+[0.357828] (octo_planner3d) StdoutLine: {'line': b'-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") \n'}
+[0.357967] (octo_planner3d) StdoutLine: {'line': b'-- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.6.37") \n'}
+[0.362550] (octo_planner3d) StdoutLine: {'line': b'-- Found Eigen3: /usr/include/eigen3 (found version "3.4.0") \n'}
+[0.399106] (-) TimerEvent: {}
+[0.408864] (octo_planner3d) StdoutLine: {'line': b'-- Found X11: /usr/include   \n'}
+[0.408984] (octo_planner3d) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so\n'}
+[0.461050] (octo_planner3d) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found\n'}
+[0.461341] (octo_planner3d) StdoutLine: {'line': b'-- Looking for gethostbyname\n'}
+[0.499219] (-) TimerEvent: {}
+[0.521560] (octo_planner3d) StdoutLine: {'line': b'-- Looking for gethostbyname - found\n'}
+[0.521681] (octo_planner3d) StdoutLine: {'line': b'-- Looking for connect\n'}
+[0.568050] (octo_planner3d) StdoutLine: {'line': b'-- Looking for connect - found\n'}
+[0.568179] (octo_planner3d) StdoutLine: {'line': b'-- Looking for remove\n'}
+[0.599312] (-) TimerEvent: {}
+[0.615350] (octo_planner3d) StdoutLine: {'line': b'-- Looking for remove - found\n'}
+[0.615473] (octo_planner3d) StdoutLine: {'line': b'-- Looking for shmat\n'}
+[0.655993] (octo_planner3d) StdoutLine: {'line': b'-- Looking for shmat - found\n'}
+[0.656125] (octo_planner3d) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE\n'}
+[0.701891] (-) TimerEvent: {}
+[0.702976] (octo_planner3d) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE - found\n'}
+[0.748080] (octo_planner3d) StdoutLine: {'line': b'-- Found EXPAT: /usr/lib/x86_64-linux-gnu/libexpat.so (found version "2.4.7") \n'}
+[0.748650] (octo_planner3d) StdoutLine: {'line': b'-- Found double-conversion: /usr/lib/x86_64-linux-gnu/libdouble-conversion.so  \n'}
+[0.749461] (octo_planner3d) StdoutLine: {'line': b'-- Found LZ4: /usr/lib/x86_64-linux-gnu/liblz4.so (found version "1.9.3") \n'}
+[0.752621] (octo_planner3d) StdoutLine: {'line': b'-- Found LZMA: /usr/lib/x86_64-linux-gnu/liblzma.so (found version "5.2.5") \n'}
+[0.757650] (octo_planner3d) StdoutLine: {'line': b'-- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80") \n'}
+[0.759533] (octo_planner3d) StdoutLine: {'line': b'-- Found TIFF: /usr/lib/x86_64-linux-gnu/libtiff.so (found version "4.3.0")  \n'}
+[0.761185] (octo_planner3d) StdoutLine: {'line': b'-- Found Freetype: /usr/lib/x86_64-linux-gnu/libfreetype.so (found version "2.11.1") \n'}
+[0.763655] (octo_planner3d) StdoutLine: {'line': b'-- Found utf8cpp: /usr/include/utf8cpp  \n'}
+[0.785667] (octo_planner3d) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.65.0") found components: system filesystem date_time iostreams serialization \n'}
+[0.789696] (octo_planner3d) StdoutLine: {'line': b"-- Checking for module 'eigen3'\n"}
+[0.798320] (octo_planner3d) StdoutLine: {'line': b'--   Found eigen3, version 3.4.0\n'}
+[0.804575] (-) TimerEvent: {}
+[0.826395] (octo_planner3d) StdoutLine: {'line': b'-- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") \n'}
+[0.826523] (octo_planner3d) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.4.0)\n'}
+[0.828175] (octo_planner3d) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.4.0)\n'}
+[0.831091] (octo_planner3d) StdoutLine: {'line': b'-- looking for PCL_OCTREE\n'}
+[0.831364] (octo_planner3d) StdoutLine: {'line': b'-- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  \n'}
+[0.831401] (octo_planner3d) StdoutLine: {'line': b'-- looking for PCL_IO\n'}
+[0.831695] (octo_planner3d) StdoutLine: {'line': b'-- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  \n'}
+[0.831728] (octo_planner3d) StdoutLine: {'line': b'-- looking for PCL_COMMON\n'}
+[0.832177] (octo_planner3d) StdoutLine: {'line': b'-- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  \n'}
+[0.832819] (octo_planner3d) StdoutLine: {'line': b'-- Found PCL: pcl_octree;pcl_io;pcl_common;Boost::system;Boost::filesystem;Boost::date_time;Boost::iostreams;Boost::serialization;/usr/lib/libOpenNI.so;libusb::libusb;/usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb;VTK::ChartsCore;VTK::CommonColor;VTK::CommonComputationalGeometry;VTK::CommonCore;VTK::CommonDataModel;VTK::CommonExecutionModel;VTK::CommonMath;VTK::CommonMisc;VTK::CommonTransforms;VTK::FiltersCore;VTK::FiltersExtraction;VTK::FiltersGeneral;VTK::FiltersGeometry;VTK::FiltersModeling;VTK::FiltersSources;VTK::ImagingCore;VTK::ImagingSources;VTK::InteractionImage;VTK::InteractionStyle;VTK::InteractionWidgets;VTK::IOCore;VTK::IOGeometry;VTK::IOImage;VTK::IOLegacy;VTK::IOPLY;VTK::RenderingAnnotation;VTK::RenderingCore;VTK::RenderingContext2D;VTK::RenderingLOD;VTK::RenderingFreeType;VTK::ViewsCore;VTK::ViewsContext2D;VTK::RenderingOpenGL2;VTK::GUISupportQt  \n'}
+[0.905836] (-) TimerEvent: {}
+[0.919305] (octo_planner3d) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.968806] (octo_planner3d) StdoutLine: {'line': b'-- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.983827] (octo_planner3d) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.983957] (octo_planner3d) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.985036] (octo_planner3d) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.990956] (octo_planner3d) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.996702] (octo_planner3d) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.005962] (-) TimerEvent: {}
+[1.017501] (octo_planner3d) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.017661] (octo_planner3d) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.067988] (octo_planner3d) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[1.078798] (octo_planner3d) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[1.101984] (octo_planner3d) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.106053] (-) TimerEvent: {}
+[1.130181] (octo_planner3d) StdoutLine: {'line': b'-- Found geometry_msgs: 4.9.1 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[1.135667] (octo_planner3d) StdoutLine: {'line': b'-- Found nav_msgs: 4.9.1 (/opt/ros/humble/share/nav_msgs/cmake)\n'}
+[1.143549] (octo_planner3d) StdoutLine: {'line': b'-- Found visualization_msgs: 4.9.1 (/opt/ros/humble/share/visualization_msgs/cmake)\n'}
+[1.195718] (octo_planner3d) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.207179] (-) TimerEvent: {}
+[1.208397] (octo_planner3d) StdoutLine: {'line': b'-- Generating done\n'}
+[1.212677] (octo_planner3d) StdoutLine: {'line': b'-- Build files have been written to: /workspace/OctoPlanner3D-ROS2/build/octo_planner3d\n'}
+[1.221664] (octo_planner3d) CommandEnded: {'returncode': 0}
+[1.222784] (octo_planner3d) JobProgress: {'identifier': 'octo_planner3d', 'progress': 'build'}
+[1.222805] (octo_planner3d) Command: {'cmd': ['/usr/bin/cmake', '--build', '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d', '--', '-j20', '-l20'], 'cwd': '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d', 'env': OrderedDict([('HOSTNAME', 'ubuntu-LEGION-REN9000K-34IAS'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/workspace'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/workspace/OctoPlanner3D/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('XAUTHORITY', '/tmp/.docker.xauth'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/workspace/OctoPlanner3D/install/octo_planner3d:/opt/ros/humble'), ('PWD', '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/workspace/OctoPlanner3D/install/octo_planner3d:/opt/ros/humble')]), 'shell': False}
+[1.256679] (octo_planner3d) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding CXX object octomap/CMakeFiles/Octomap.dir/src/pcd2octomap_converter.cpp.o\x1b[0m\n'}
+[1.262826] (octo_planner3d) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object planner/CMakeFiles/GlobalPlanner.dir/src/global_planner.cpp.o\x1b[0m\n'}
+[1.307283] (-) TimerEvent: {}
+[1.407612] (-) TimerEvent: {}
+[1.507995] (-) TimerEvent: {}
+[1.608293] (-) TimerEvent: {}
+[1.708593] (-) TimerEvent: {}
+[1.812686] (-) TimerEvent: {}
+[1.860665] (octo_planner3d) StdoutLine: {'line': b'[ 37%] \x1b[32m\x1b[1mLinking CXX static library libGlobalPlanner.a\x1b[0m\n'}
+[1.888080] (octo_planner3d) StdoutLine: {'line': b'[ 37%] Built target GlobalPlanner\n'}
+[1.912873] (-) TimerEvent: {}
+[2.013149] (-) TimerEvent: {}
+[2.113399] (-) TimerEvent: {}
+[2.213725] (-) TimerEvent: {}
+[2.316379] (-) TimerEvent: {}
+[2.416617] (-) TimerEvent: {}
+[2.516982] (-) TimerEvent: {}
+[2.621722] (-) TimerEvent: {}
+[2.721966] (-) TimerEvent: {}
+[2.822208] (-) TimerEvent: {}
+[2.922449] (-) TimerEvent: {}
+[2.938513] (octo_planner3d) StdoutLine: {'line': b'[ 50%] \x1b[32m\x1b[1mLinking CXX static library libOctomap.a\x1b[0m\n'}
+[2.964817] (octo_planner3d) StdoutLine: {'line': b'[ 50%] Built target Octomap\n'}
+[2.975907] (octo_planner3d) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/globalPlan.dir/main.cpp.o\x1b[0m\n'}
+[2.976594] (octo_planner3d) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/octo_planner_rviz_node.dir/src/octo_planner_rviz_node.cpp.o\x1b[0m\n'}
+[3.023098] (-) TimerEvent: {}
+[3.123522] (-) TimerEvent: {}
+[3.224848] (-) TimerEvent: {}
+[3.325120] (-) TimerEvent: {}
+[3.426852] (-) TimerEvent: {}
+[3.527232] (-) TimerEvent: {}
+[3.629859] (-) TimerEvent: {}
+[3.730166] (-) TimerEvent: {}
+[3.831478] (-) TimerEvent: {}
+[3.931740] (-) TimerEvent: {}
+[4.032330] (-) TimerEvent: {}
+[4.132594] (-) TimerEvent: {}
+[4.210857] (octo_planner3d) StdoutLine: {'line': b'[ 87%] \x1b[32m\x1b[1mLinking CXX executable globalPlan\x1b[0m\n'}
+[4.232688] (-) TimerEvent: {}
+[4.335945] (-) TimerEvent: {}
+[4.361073] (octo_planner3d) StdoutLine: {'line': b'[ 87%] Built target globalPlan\n'}
+[4.436037] (-) TimerEvent: {}
+[4.536738] (-) TimerEvent: {}
+[4.637130] (-) TimerEvent: {}
+[4.737488] (-) TimerEvent: {}
+[4.837835] (-) TimerEvent: {}
+[4.938091] (-) TimerEvent: {}
+[5.038342] (-) TimerEvent: {}
+[5.139153] (-) TimerEvent: {}
+[5.239399] (-) TimerEvent: {}
+[5.344771] (-) TimerEvent: {}
+[5.445017] (-) TimerEvent: {}
+[5.546301] (-) TimerEvent: {}
+[5.646934] (-) TimerEvent: {}
+[5.747172] (-) TimerEvent: {}
+[5.847412] (-) TimerEvent: {}
+[5.949853] (-) TimerEvent: {}
+[6.050118] (-) TimerEvent: {}
+[6.155845] (-) TimerEvent: {}
+[6.256121] (-) TimerEvent: {}
+[6.356462] (-) TimerEvent: {}
+[6.457444] (-) TimerEvent: {}
+[6.559542] (-) TimerEvent: {}
+[6.659815] (-) TimerEvent: {}
+[6.760060] (-) TimerEvent: {}
+[6.865839] (-) TimerEvent: {}
+[6.966123] (-) TimerEvent: {}
+[7.067843] (-) TimerEvent: {}
+[7.168103] (-) TimerEvent: {}
+[7.270086] (-) TimerEvent: {}
+[7.370334] (-) TimerEvent: {}
+[7.470578] (-) TimerEvent: {}
+[7.570843] (-) TimerEvent: {}
+[7.671112] (-) TimerEvent: {}
+[7.771365] (-) TimerEvent: {}
+[7.872683] (-) TimerEvent: {}
+[7.973012] (-) TimerEvent: {}
+[8.075935] (-) TimerEvent: {}
+[8.176240] (-) TimerEvent: {}
+[8.276513] (-) TimerEvent: {}
+[8.381369] (-) TimerEvent: {}
+[8.481684] (-) TimerEvent: {}
+[8.581946] (-) TimerEvent: {}
+[8.682206] (-) TimerEvent: {}
+[8.783844] (-) TimerEvent: {}
+[8.884941] (-) TimerEvent: {}
+[8.985178] (-) TimerEvent: {}
+[9.086002] (-) TimerEvent: {}
+[9.188840] (-) TimerEvent: {}
+[9.289075] (-) TimerEvent: {}
+[9.389371] (-) TimerEvent: {}
+[9.492844] (-) TimerEvent: {}
+[9.593085] (-) TimerEvent: {}
+[9.693340] (-) TimerEvent: {}
+[9.797627] (-) TimerEvent: {}
+[9.898837] (-) TimerEvent: {}
+[9.999082] (-) TimerEvent: {}
+[10.100842] (-) TimerEvent: {}
+[10.201094] (-) TimerEvent: {}
+[10.301331] (-) TimerEvent: {}
+[10.401647] (-) TimerEvent: {}
+[10.502088] (-) TimerEvent: {}
+[10.602622] (-) TimerEvent: {}
+[10.703006] (-) TimerEvent: {}
+[10.803269] (-) TimerEvent: {}
+[10.813017] (octo_planner3d) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable octo_planner_rviz_node\x1b[0m\n'}
+[10.906416] (-) TimerEvent: {}
+[11.006677] (-) TimerEvent: {}
+[11.106926] (-) TimerEvent: {}
+[11.207171] (-) TimerEvent: {}
+[11.311614] (-) TimerEvent: {}
+[11.382432] (octo_planner3d) StdoutLine: {'line': b'[100%] Built target octo_planner_rviz_node\n'}
+[11.390764] (octo_planner3d) CommandEnded: {'returncode': 0}
+[11.391064] (octo_planner3d) JobProgress: {'identifier': 'octo_planner3d', 'progress': 'install'}
+[11.396536] (octo_planner3d) Command: {'cmd': ['/usr/bin/cmake', '--install', '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d'], 'cwd': '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d', 'env': OrderedDict([('HOSTNAME', 'ubuntu-LEGION-REN9000K-34IAS'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/workspace'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/workspace/OctoPlanner3D/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('XAUTHORITY', '/tmp/.docker.xauth'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/workspace/OctoPlanner3D/install/octo_planner3d:/opt/ros/humble'), ('PWD', '/workspace/OctoPlanner3D-ROS2/build/octo_planner3d'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/workspace/OctoPlanner3D/install/octo_planner3d:/opt/ros/humble')]), 'shell': False}
+[11.400952] (octo_planner3d) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[11.401229] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/lib/octo_planner3d/globalPlan\n'}
+[11.401446] (octo_planner3d) StdoutLine: {'line': b'-- Set runtime path of "/workspace/OctoPlanner3D-ROS2/install/octo_planner3d/lib/octo_planner3d/globalPlan" to ""\n'}
+[11.401488] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/lib/octo_planner3d/octo_planner_rviz_node\n'}
+[11.408879] (octo_planner3d) StdoutLine: {'line': b'-- Set runtime path of "/workspace/OctoPlanner3D-ROS2/install/octo_planner3d/lib/octo_planner3d/octo_planner_rviz_node" to "$ORIGIN"\n'}
+[11.409038] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/lib/octo_planner3d/liboctomap.so.1.10\n'}
+[11.409073] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/lib/octo_planner3d/liboctomath.so.1.10\n'}
+[11.409097] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/ament_index/resource_index/package_run_dependencies/octo_planner3d\n'}
+[11.409119] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/ament_index/resource_index/parent_prefix_path/octo_planner3d\n'}
+[11.409139] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/environment/ament_prefix_path.sh\n'}
+[11.409160] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/environment/ament_prefix_path.dsv\n'}
+[11.409179] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/environment/path.sh\n'}
+[11.409199] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/environment/path.dsv\n'}
+[11.409218] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/local_setup.bash\n'}
+[11.409256] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/local_setup.sh\n'}
+[11.409284] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/local_setup.zsh\n'}
+[11.409311] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/local_setup.dsv\n'}
+[11.409340] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/package.dsv\n'}
+[11.409368] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/ament_index/resource_index/packages/octo_planner3d\n'}
+[11.409413] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/cmake/octo_planner3dConfig.cmake\n'}
+[11.409439] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/cmake/octo_planner3dConfig-version.cmake\n'}
+[11.409471] (octo_planner3d) StdoutLine: {'line': b'-- Installing: /workspace/OctoPlanner3D-ROS2/install/octo_planner3d/share/octo_planner3d/package.xml\n'}
+[11.410867] (octo_planner3d) CommandEnded: {'returncode': 0}
+[11.411666] (-) TimerEvent: {}
+[11.425011] (octo_planner3d) JobEnded: {'identifier': 'octo_planner3d', 'rc': 0}
+[11.425508] (-) EventReactorShutdown: {}
