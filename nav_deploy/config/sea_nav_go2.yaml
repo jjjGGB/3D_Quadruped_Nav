@@ -1,0 +1,28 @@
+sea_nav_policy:
+  ros__parameters:
+    # Gazebo publishes model pose/twist directly; switch to "odom" for a
+    # localized robot without changing policy code.
+    state_source: gazebo_model_states
+    state_frame: world
+    model_name: robot_model
+    model_states_topic: /gazebo/model_states
+    odom_topic: /odom
+    odom_twist_in_body_frame: true
+
+    scan_topic: /sea_nav/scan
+    goal_topic: /goal_pose
+    cmd_vel_topic: /cmd_vel
+
+    control_rate: 20.0
+    sensor_timeout: 0.5
+    goal_tolerance: 0.5
+    initial_goal: [0.0, 7.0]
+
+    # These values are fixed by the Go2 SEA-Nav training configuration.
+    ray_angle_min_deg: -120.0
+    ray_angle_max_deg: 120.0
+    ray_min: 0.1
+    ray_max: 5.0
+    action_filter_alpha: 0.5
+    action_min: [-0.5, -1.0, -1.0]
+    action_max: [2.0, 1.0, 1.0]
