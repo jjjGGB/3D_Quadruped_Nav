@@ -1,7 +1,7 @@
 {
-  "checkpoint": "training/legged_gym/logs/Go2_pos_rough/05_19_10-41-47_/model_2000.pt",
+  "checkpoint": "nav_deploy/models/model_2000.pt",
   "checkpoint_iteration": 2000,
-  "onnx_sha256": "b3caf25314809344c20a2286e70f344060d598aecb21e166e5cbb94d138a11a5",
+  "onnx_sha256": "5ae759282e0bc576c7632775e66cfee2f692c94f3c977c9f87dd49c12c0ceb77",
   "input_name": "observation_history",
   "input_shape": [
     "batch",
@@ -14,6 +14,6 @@
     "yaw_rate"
   ],
   "onnx_opset": 17,
-  "original_wrapper_max_abs_error": 1.1920928955078125e-07,
-  "wrapper_onnx_max_abs_error": 7.152557373046875e-07
+  "original_wrapper_max_abs_error": 5.960464477539063e-08,
+  "wrapper_onnx_max_abs_error": 6.556510925292969e-07
 }

@@ -8,7 +8,7 @@ import numpy as np
 import rclpy
 from ament_index_python.packages import get_package_share_directory
 from gazebo_msgs.msg import ModelStates
-from geometry_msgs.msg import PoseStamped, Twist
+from geometry_msgs.msg import PoseStamped, TransformStamped, Twist
 from nav_msgs.msg import Odometry
 from rclpy.duration import Duration
 from rclpy.node import Node
@@ -16,9 +16,14 @@ from rclpy.qos import qos_profile_sensor_data
 from rclpy.time import Time
 from sensor_msgs.msg import LaserScan
 from std_msgs.msg import Float32MultiArray
-from tf2_ros import Buffer, TransformException, TransformListener
+from tf2_ros import (
+    Buffer,
+    TransformBroadcaster,
+    TransformException,
+    TransformListener,
+)
 
-from nav_deploy.policy_core import SeaNavGo2Policy, rotate_vector
+from nav_deploy.policy_core import NUM_RAYS, SeaNavGo2Policy, rotate_vector
 
 
 class SeaNavPolicyNode(Node):
@@ -30,6 +35,8 @@ class SeaNavPolicyNode(Node):
         self.declare_parameter("model_path", "")
         self.declare_parameter("state_source", "gazebo_model_states")
         self.declare_parameter("state_frame", "world")
+        self.declare_parameter("base_frame", "base_link")
+        self.declare_parameter("publish_gazebo_tf", True)
         self.declare_parameter("model_name", "robot_model")
         self.declare_parameter("scan_topic", "/sea_nav/scan")
         self.declare_parameter("model_states_topic", "/gazebo/model_states")
@@ -76,6 +83,10 @@ class SeaNavPolicyNode(Node):
                 "state_source must be 'gazebo_model_states' or 'odom'"
             )
         self.state_frame = self.get_parameter("state_frame").value
+        self.base_frame = self.get_parameter("base_frame").value
+        self.publish_gazebo_tf = self.get_parameter(
+            "publish_gazebo_tf"
+        ).value
         self.model_name = self.get_parameter("model_name").value
         self.sensor_timeout = self.get_parameter("sensor_timeout").value
         self.goal_tolerance = self.get_parameter("goal_tolerance").value
@@ -91,12 +102,14 @@ class SeaNavPolicyNode(Node):
         self.rays = None
         self.last_state_time = None
         self.last_scan_time = None
+        self.scan_interface_logged = False
         self.goal = np.asarray(
             self.get_parameter("initial_goal").value[:2], dtype=np.float32
         )
 
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
+        self.tf_broadcaster = TransformBroadcaster(self)
         self.cmd_publisher = self.create_publisher(
             Twist, self.get_parameter("cmd_vel_topic").value, 1
         )
@@ -145,7 +158,21 @@ class SeaNavPolicyNode(Node):
         if now - self.last_log_times.get(key, -period) < period:
             return
         self.last_log_times[key] = now
-        getattr(self.get_logger(), level)(message)
+        # Humble's rclpy binds a logger call site to its first severity. A
+        # dynamic getattr on one source line therefore crashes when a later
+        # call uses another level (for example WARNING while inputs initialize,
+        # followed by INFO after inference starts). Keep each severity on a
+        # distinct source line so the throttling helper remains safe.
+        if level == "debug":
+            self.get_logger().debug(message)
+        elif level == "info":
+            self.get_logger().info(message)
+        elif level == "warning":
+            self.get_logger().warning(message)
+        elif level == "error":
+            self.get_logger().error(message)
+        else:
+            raise ValueError(f"Unsupported log level: {level}")
 
     def scan_callback(self, message):
         try:
@@ -158,6 +185,14 @@ class SeaNavPolicyNode(Node):
         with self.lock:
             self.rays = sampled
             self.last_scan_time = time.monotonic()
+        if not self.scan_interface_logged:
+            self.scan_interface_logged = True
+            self.get_logger().info(
+                "LaserScan interface ready: frame='{}', input_bins={}, "
+                "policy_rays={}".format(
+                    message.header.frame_id, len(message.ranges), NUM_RAYS
+                )
+            )
 
     def model_states_callback(self, message):
         try:
@@ -169,7 +204,27 @@ class SeaNavPolicyNode(Node):
                 f"Model '{self.model_name}' is absent from /gazebo/model_states",
             )
             return
-        self.store_state(message.pose[index], message.twist[index], False)
+        pose = message.pose[index]
+        self.store_state(pose, message.twist[index], False)
+        if self.publish_gazebo_tf:
+            self.publish_model_transform(pose)
+
+    def publish_model_transform(self, pose):
+        """Bridge Gazebo's root pose into the robot_state_publisher TF tree.
+
+        Gazebo ModelStates is not a TF source. Without this bridge RViz can
+        display links relative to base_link, but a 2D Nav Goal stamped in
+        base_link cannot be transformed into the policy's world frame.
+        """
+        transform = TransformStamped()
+        transform.header.stamp = self.get_clock().now().to_msg()
+        transform.header.frame_id = self.state_frame
+        transform.child_frame_id = self.base_frame
+        transform.transform.translation.x = pose.position.x
+        transform.transform.translation.y = pose.position.y
+        transform.transform.translation.z = pose.position.z
+        transform.transform.rotation = pose.orientation
+        self.tf_broadcaster.sendTransform(transform)
 
     def odom_callback(self, message):
         if message.header.frame_id:
@@ -336,7 +391,11 @@ class SeaNavPolicyNode(Node):
         self.cmd_publisher.publish(Twist())
 
     def destroy_node(self):
-        self.publish_stop()
+        # A launch SIGINT can invalidate the rclpy context before destroy_node
+        # runs. Publishing after that point raises RCLError and turns a normal
+        # shutdown into a process failure.
+        if rclpy.ok(context=self.context):
+            self.publish_stop()
         return super().destroy_node()
 
 

@@ -4,6 +4,11 @@ sea_nav_policy:
     # localized robot without changing policy code.
     state_source: gazebo_model_states
     state_frame: world
+    base_frame: base_link
+    # /gazebo/model_states is not TF. Publish world -> base_link so RViz goals
+    # and the robot model share one connected frame tree. The Go2 Xacro must
+    # not also load world_tf_publisher, otherwise base_link gets two parents.
+    publish_gazebo_tf: true
     model_name: robot_model
     model_states_topic: /gazebo/model_states
     odom_topic: /odom
@@ -26,3 +31,28 @@ sea_nav_policy:
     action_filter_alpha: 0.5
     action_min: [-0.5, -1.0, -1.0]
     action_max: [2.0, 1.0, 1.0]
+
+pointcloud_to_laserscan:
+  ros__parameters:
+    target_frame: base_link
+    transform_tolerance: 0.05
+    queue_size: 4
+
+    # Keep obstacle points across the Go2 body collision height while
+    # rejecting the floor below the trunk and points far above the robot.
+    min_height: -0.15
+    max_height: 0.35
+
+    # The policy rays are -120..120 degrees inclusive at 6-degree spacing.
+    # pointcloud_to_laserscan allocates ceil((max-min)/increment) bins, so an
+    # exact +120-degree max would incorrectly allocate only 40. The 1e-6
+    # epsilon allocates 41 bins while their actual angles remain exactly
+    # [-120, -114, ..., 120] degrees.
+    angle_min: -2.0943951023931953
+    angle_max: 2.0943961023931954
+    angle_increment: 0.10471975511965977
+    scan_time: 0.1
+    range_min: 0.1
+    range_max: 5.0
+    use_inf: true
+    inf_epsilon: 1.0

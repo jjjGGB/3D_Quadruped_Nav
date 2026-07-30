@@ -4,9 +4,9 @@
 import argparse
 import copy
 import hashlib
+import inspect
 import json
 import math
-import sys
 from pathlib import Path
 
 import numpy as np
@@ -17,6 +17,113 @@ import torch.nn as nn
 HISTORY_LENGTH = 10
 OBSERVATION_STEP_SIZE = 55
 OBSERVATION_SIZE = HISTORY_LENGTH * OBSERVATION_STEP_SIZE
+
+
+class ExactLSECBFLayer(nn.Module):
+    """Closed-form safety layer used by the SEA-Nav training policy."""
+
+    def __init__(
+        self,
+        num_rays=41,
+        fov_deg=180.0,
+        safe_radius=0.15,
+        safety_margin=0.05,
+        kappa=10.0,
+        damping_factor=1.0,
+    ):
+        super().__init__()
+        self.d_safe = safe_radius + safety_margin
+        self.kappa = kappa
+        self.damping_factor = damping_factor
+
+        half_fov = math.radians(fov_deg) / 2.0
+        angles = torch.linspace(-half_fov, half_fov, num_rays)
+        self.register_buffer(
+            "ray_unit_vectors",
+            torch.stack((torch.cos(angles), torch.sin(angles)), dim=1),
+        )
+
+    def forward(self, nominal_action, lidar_distance, alpha):
+        nominal_xy = nominal_action[:, :2]
+        yaw_rate = nominal_action[:, 2:]
+        barrier_per_ray = lidar_distance - self.d_safe
+
+        min_barrier, _ = torch.min(barrier_per_ray, dim=1, keepdim=True)
+        composite_barrier = min_barrier - (1.0 / self.kappa) * torch.log(
+            torch.sum(
+                torch.exp(
+                    -self.kappa * (barrier_per_ray - min_barrier)
+                ),
+                dim=1,
+                keepdim=True,
+            )
+        )
+        ray_weight = torch.exp(
+            -self.kappa * (barrier_per_ray - composite_barrier)
+        ).unsqueeze(-1)
+        barrier_gradient = -torch.sum(
+            ray_weight * self.ray_unit_vectors.unsqueeze(0), dim=1
+        )
+
+        gradient_action = torch.sum(
+            barrier_gradient * nominal_xy, dim=1, keepdim=True
+        )
+        gradient_norm_squared = torch.sum(
+            barrier_gradient**2, dim=1, keepdim=True
+        )
+        correction_scale = -(
+            gradient_action + alpha * composite_barrier
+        ) / (gradient_norm_squared + self.damping_factor)
+        safe_xy = (
+            nominal_xy
+            + torch.nn.functional.relu(correction_scale)
+            * barrier_gradient
+        )
+        return torch.cat((safe_xy, yaw_rate), dim=-1)
+
+
+class Go2CheckpointPolicy(nn.Module):
+    """Self-contained architecture matching the Go2 training checkpoint."""
+
+    def __init__(self):
+        super().__init__()
+        self.num_actions = 3
+        self.num_props = 12
+        self.num_rays = 41
+        self.num_obs_one_step = OBSERVATION_STEP_SIZE
+        self.num_latent = 16
+
+        self.backbone = self._mlp((71, 512, 256, 128), final_elu=True)
+        self.nav_head = self._mlp((128, 128, 3))
+        self.critic = self._mlp((71, 512, 256, 128, 1))
+        self.encoder = self._mlp((OBSERVATION_SIZE, 512, 256, 128, 16))
+        self.alpha_head = self._mlp((128, 64, 1))
+        self.cbf_layer = ExactLSECBFLayer(num_rays=self.num_rays)
+        self.std = nn.Parameter(1.5 * torch.ones(self.num_actions))
+
+    @staticmethod
+    def _mlp(dimensions, final_elu=False):
+        layers = []
+        for index, (input_size, output_size) in enumerate(
+            zip(dimensions, dimensions[1:])
+        ):
+            layers.append(nn.Linear(input_size, output_size))
+            if index < len(dimensions) - 2 or final_elu:
+                layers.append(nn.ELU())
+        return nn.Sequential(*layers)
+
+    def forward(self, observation_history):
+        latest = observation_history[:, -self.num_obs_one_step:]
+        rays_log2 = latest[
+            :, self.num_props:self.num_props + self.num_rays
+        ]
+        latent = self.encoder(observation_history)
+        shared = self.backbone(torch.cat((latest, latent.detach()), dim=-1))
+        nominal_action = self.nav_head(shared)
+        alpha = torch.nn.functional.softplus(self.alpha_head(shared))
+        return self.cbf_layer(
+            nominal_action, torch.exp2(rays_log2), alpha
+        )
 
 
 class Go2OnnxPolicy(nn.Module):
@@ -49,63 +156,14 @@ class Go2OnnxPolicy(nn.Module):
         return self.cbf_layer(nominal_action, ray_distance, alpha)
 
 
-def default_sea_nav_root():
-    target_repo = Path(__file__).resolve().parents[2]
-    return target_repo.parent / "SEA-Nav-Code"
-
-
-def default_checkpoint(sea_nav_root):
-    preferred = (
-        sea_nav_root
-        / "training/legged_gym/logs/Go2_pos_rough"
-        / "05_19_10-41-47_/model_2000.pt"
-    )
-    if preferred.is_file():
-        return preferred
-
-    candidates = list(
-        (
-            sea_nav_root
-            / "training/legged_gym/logs/Go2_pos_rough"
-        ).glob("*_/model_*.pt")
-    )
-    if not candidates:
-        return preferred
-
-    def checkpoint_key(path):
-        try:
-            iteration = int(path.stem.rsplit("_", 1)[1])
-        except (IndexError, ValueError):
-            iteration = -1
-        return path.parent.stat().st_mtime, iteration
-
-    return max(candidates, key=checkpoint_key)
-
-
-def import_actor_critic(sea_nav_root):
-    rsl_rl_root = sea_nav_root / "training/rsl_rl"
-    if not rsl_rl_root.is_dir():
-        raise FileNotFoundError(f"rsl_rl source not found: {rsl_rl_root}")
-    sys.path.insert(0, str(rsl_rl_root))
-    from rsl_rl.modules.cbf_actor_critic import (  # pylint: disable=import-outside-toplevel
-        DifferentiableSafeActorCritic,
+def default_checkpoint():
+    return (
+        Path(__file__).resolve().parents[1] / "models/model_2000.pt"
     )
 
-    return DifferentiableSafeActorCritic
 
-
-def build_policy(sea_nav_root, checkpoint_path):
-    policy_class = import_actor_critic(sea_nav_root)
-    actor_critic = policy_class(
-        num_actions=3,
-        num_props=12,
-        num_rays=41,
-        his_len=10,
-        actor_hidden_dims=[512, 256, 128],
-        critic_hidden_dims=[512, 256, 128],
-        encoder_hidden_dims=[512, 256, 128],
-        activation="elu",
-    )
+def build_policy(checkpoint_path):
+    actor_critic = Go2CheckpointPolicy()
     try:
         checkpoint = torch.load(
             str(checkpoint_path), map_location="cpu", weights_only=True
@@ -193,9 +251,8 @@ def verify_export(original_model, export_model, onnx_path):
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--sea-nav-root", type=Path, default=default_sea_nav_root()
+        "--checkpoint", type=Path, default=default_checkpoint()
     )
-    parser.add_argument("--checkpoint", type=Path)
     parser.add_argument(
         "--output",
         type=Path,
@@ -208,19 +265,22 @@ def parse_args():
 
 def main():
     args = parse_args()
-    sea_nav_root = args.sea_nav_root.resolve()
-    checkpoint = args.checkpoint or default_checkpoint(sea_nav_root)
-    checkpoint = checkpoint.resolve()
+    checkpoint = args.checkpoint.resolve()
     if not checkpoint.is_file():
         raise FileNotFoundError(
             f"Checkpoint not found: {checkpoint}; pass --checkpoint explicitly"
         )
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    original_model, export_model, iteration = build_policy(
-        sea_nav_root, checkpoint
-    )
+    original_model, export_model, iteration = build_policy(checkpoint)
     example = torch.from_numpy(realistic_observation(1))
+    export_options = {}
+    if "dynamo" in inspect.signature(torch.onnx.export).parameters:
+        # PyTorch 2.9+ defaults to the onnxscript-based dynamo exporter.
+        # The legacy path is stable for this static feed-forward graph and
+        # keeps the standalone export dependencies minimal. Older supported
+        # PyTorch versions do not expose this option and already use it.
+        export_options["dynamo"] = False
     torch.onnx.export(
         export_model,
         example,
@@ -233,13 +293,15 @@ def main():
         },
         opset_version=args.opset,
         do_constant_folding=True,
+        **export_options,
     )
     wrapper_error, onnx_error = verify_export(
         original_model, export_model, args.output
     )
 
+    project_root = Path(__file__).resolve().parents[2]
     try:
-        checkpoint_id = str(checkpoint.relative_to(sea_nav_root))
+        checkpoint_id = str(checkpoint.relative_to(project_root))
     except ValueError:
         checkpoint_id = str(checkpoint)
     model_hash = hashlib.sha256(args.output.read_bytes()).hexdigest()

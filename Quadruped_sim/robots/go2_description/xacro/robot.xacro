@@ -5,9 +5,14 @@
     <xacro:include filename="$(find go2_description)/urdf/go2_description.urdf"/>
     <xacro:include filename="$(find go2_description)/xacro/gazebo.xacro"/>
  
-    <!-- LASER SCAN-->
+    <!--
+      SEA-Nav consumes obstacle distances in [0.1, 5.0] m. Filtering the
+      VLP-16 at its old 0.9 m minimum made close obstacles disappear before
+      pointcloud_to_laserscan could process them, so keep the raw cloud range
+      aligned with the policy here and perform FOV/height projection later.
+    -->
     <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro" />
-    <xacro:VLP-16 parent="vlp16_link" name="vlp16" tf_prefix="" topic="/velodyne_points" organize_cloud="false" hz="10" lasers="16" samples="1000" collision_range="0.3" min_range="0.9" max_range="30.0" noise="0.008" min_angle="-${M_PI}" max_angle="${M_PI}" gpu="true">
+    <xacro:VLP-16 parent="vlp16_link" name="vlp16" tf_prefix="" topic="/velodyne_points" organize_cloud="false" hz="10" lasers="16" samples="1000" collision_range="0.1" min_range="0.1" max_range="5.0" noise="0.008" min_angle="-${M_PI}" max_angle="${M_PI}" gpu="true">
         <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
     </xacro:VLP-16>
 
@@ -34,5 +39,4 @@
     </xacro:mid360> -->
 
 </robot>
-
 

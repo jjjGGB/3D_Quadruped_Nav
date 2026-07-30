@@ -1,5 +1,16 @@
 <sdf version='1.7'>
   <world name='tower'>
+    <!--
+      gazebo_ros_init/factory do not publish ModelStates in ROS 2. SEA-Nav
+      needs the model pose and world-frame twist to reproduce its training
+      observation and to publish world -> base_link for RViz goals.
+    -->
+    <plugin name='gazebo_ros_state' filename='libgazebo_ros_state.so'>
+      <ros>
+        <namespace>/gazebo</namespace>
+      </ros>
+      <update_rate>50.0</update_rate>
+    </plugin>
     <gui fullscreen='0'>
       <camera name='user_camera'>
         <pose>10.9029 -6.19248 2.43898 -0 0.306141 3.0529</pose>

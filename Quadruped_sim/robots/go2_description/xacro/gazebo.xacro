@@ -144,40 +144,6 @@
 
     <xacro:if value="${int(ros_version) == 2}">
 
-    <!-- SEA-Nav was trained with 41 planar rays covering -120 to +120 deg.
-         Publish a denser scan here; nav_deploy resamples it to the exact rays. -->
-    <gazebo reference="vlp16_link">
-      <sensor name="sea_nav_scan" type="gpu_ray">
-        <always_on>true</always_on>
-        <update_rate>20</update_rate>
-        <visualize>false</visualize>
-        <pose>0 0 0 0 0 0</pose>
-        <ray>
-          <scan>
-            <horizontal>
-              <samples>241</samples>
-              <resolution>1</resolution>
-              <min_angle>-2.09439510239</min_angle>
-              <max_angle>2.09439510239</max_angle>
-            </horizontal>
-          </scan>
-          <range>
-            <min>0.1</min>
-            <max>5.0</max>
-            <resolution>0.01</resolution>
-          </range>
-        </ray>
-        <plugin name="sea_nav_ray_sensor" filename="libgazebo_ros_ray_sensor.so">
-          <ros>
-            <namespace>/</namespace>
-            <remapping>~/out:=sea_nav/scan</remapping>
-          </ros>
-          <output_type>sensor_msgs/LaserScan</output_type>
-          <frame_name>vlp16_link</frame_name>
-        </plugin>
-      </sensor>
-    </gazebo>
-
     <gazebo reference="imu_link">
       <sensor name="imu_sensor" type="imu">
       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
@@ -475,14 +441,13 @@
         <kp  value="1000000.0"/>
         <kd  value="1.0"/>
     </gazebo>
-    <!-- <gazebo>
-      <plugin name="world_tf_publisher" filename="libworld_tf_publisher.so">
-        <ros>
-          <namespace>/</namespace>
-        </ros>
-        <world_frame>map</world_frame>
-        <odom_frame>odom</odom_frame>
-        <base_frame>base_link</base_frame>
-      </plugin>
-    </gazebo> -->
+    <!-- nav_deploy publishes Gazebo's world -> base_link transform from
+         /gazebo/model_states. Do not also load world_tf_publisher here because
+         plugin publishes map -> odom -> base_link, giving base_link two
+         dynamic parents and making RViz/TF2 alternate between incompatible
+         trees. Keep comments in the generated URDF free of colon-space pairs;
+         gazebo_ros2_control passes this XML through ROS parameter YAML parsing,
+         where a colon-space inside an XML comment is interpreted as a map.
+         Keeping the bridge in nav_deploy also removes the runtime dependency
+         on a plugin that is not part of this workspace. -->
 </robot>
